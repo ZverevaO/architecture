@@ -12,5 +12,7 @@ import Foundation
 struct Record: Codable {
     var date: Date
     var result: Int
-    var countQuestion: Int 
+    var countQuestion: Int
+    //var difficultyGame: DifficultyGame
+    
 }

@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjl-uY-PvV">
-                                <rect key="frame" x="85" y="428" width="244" height="41"/>
+                                <rect key="frame" x="85" y="393.5" width="244" height="41"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <state key="normal" title="Список результатов ">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -32,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVS-Bi-hPF">
-                                <rect key="frame" x="140.5" y="337" width="133" height="41"/>
+                                <rect key="frame" x="140.5" y="302.5" width="133" height="41"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <state key="normal" title="Новая игра">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -41,19 +41,38 @@
                                     <action selector="newGameDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H8q-nD-4WT"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JNi-Ld-hmj">
+                                <rect key="frame" x="64.5" y="171.5" width="285" height="32"/>
+                                <segments>
+                                    <segment title="Легкие вопрсы"/>
+                                    <segment title="Сложные вопросы "/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Результат последней игры" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uui-Pl-xLh">
+                                <rect key="frame" x="75" y="484.5" width="264.5" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.60784313725490191" green="0.80000000000000004" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bjl-uY-PvV" firstAttribute="top" secondItem="qVS-Bi-hPF" secondAttribute="bottom" constant="50" id="1mD-XK-iag"/>
-                            <constraint firstItem="qVS-Bi-hPF" firstAttribute="firstBaseline" secondItem="VLN-RU-8F3" secondAttribute="baseline" constant="250" id="Ozu-QQ-LXt"/>
+                            <constraint firstItem="JNi-Ld-hmj" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9BJ-he-cL8"/>
+                            <constraint firstItem="JNi-Ld-hmj" firstAttribute="top" secondItem="VLN-RU-8F3" secondAttribute="bottom" constant="50" id="Lrx-ye-ZeG"/>
+                            <constraint firstItem="Uui-Pl-xLh" firstAttribute="top" secondItem="bjl-uY-PvV" secondAttribute="bottom" constant="50" id="O5A-E4-kFC"/>
                             <constraint firstItem="qVS-Bi-hPF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="WfT-oO-7rT"/>
+                            <constraint firstItem="qVS-Bi-hPF" firstAttribute="top" secondItem="JNi-Ld-hmj" secondAttribute="bottom" constant="100" id="Xx5-gY-Y26"/>
                             <constraint firstItem="bjl-uY-PvV" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="k8K-Gp-qEb"/>
                             <constraint firstItem="VLN-RU-8F3" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="oCC-7v-L2Y"/>
+                            <constraint firstItem="Uui-Pl-xLh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="tio-sC-DlY"/>
                             <constraint firstItem="VLN-RU-8F3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="v6f-8F-B3f"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="difficultySegmentedControl" destination="JNi-Ld-hmj" id="st6-aa-ZeC"/>
+                        <outlet property="lastResultLabel" destination="Uui-Pl-xLh" id="mgE-QV-hJm"/>
                         <segue destination="7mH-uf-baa" kind="modal" identifier="startGame" modalPresentationStyle="fullScreen" id="fTX-vw-A9m"/>
                     </connections>
                 </viewController>
@@ -79,23 +98,23 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дата" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gC-21-8w4">
-                                            <rect key="frame" x="187.5" y="21" width="39" height="20.5"/>
+                                            <rect key="frame" x="67.5" y="46" width="39" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xjk-pD-ahl">
-                                            <rect key="frame" x="198.5" y="51.5" width="17.5" height="20.5"/>
+                                            <rect key="frame" x="30" y="46" width="17.5" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Xjk-pD-ahl" firstAttribute="centerX" secondItem="1Ky-0N-Ffx" secondAttribute="centerX" id="AOZ-5n-2Gv"/>
-                                        <constraint firstItem="8gC-21-8w4" firstAttribute="top" secondItem="1Ky-0N-Ffx" secondAttribute="topMargin" constant="10" id="CY3-yU-twC"/>
-                                        <constraint firstItem="8gC-21-8w4" firstAttribute="centerX" secondItem="1Ky-0N-Ffx" secondAttribute="centerX" id="Rz6-SQ-kBT"/>
-                                        <constraint firstItem="Xjk-pD-ahl" firstAttribute="top" secondItem="8gC-21-8w4" secondAttribute="bottom" constant="10" id="dz7-zX-3Kb"/>
+                                        <constraint firstItem="Xjk-pD-ahl" firstAttribute="leading" secondItem="1Ky-0N-Ffx" secondAttribute="leadingMargin" constant="10" id="2Tc-5j-jFJ"/>
+                                        <constraint firstItem="Xjk-pD-ahl" firstAttribute="centerY" secondItem="1Ky-0N-Ffx" secondAttribute="centerY" id="InS-ti-L8t"/>
+                                        <constraint firstItem="8gC-21-8w4" firstAttribute="leading" secondItem="Xjk-pD-ahl" secondAttribute="trailing" constant="20" id="MJl-wD-tHB"/>
+                                        <constraint firstItem="8gC-21-8w4" firstAttribute="centerY" secondItem="1Ky-0N-Ffx" secondAttribute="centerY" id="Pgy-JB-Hwq"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.60784313729999995" green="0.80000000000000004" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

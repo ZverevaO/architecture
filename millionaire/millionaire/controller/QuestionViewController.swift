@@ -12,6 +12,10 @@ protocol CheckAnswerDelegate: AnyObject {
     func didTapUserAnswer (userAnswer: Int, correctAnswer: Int)
 }
 
+protocol  QuestionViewControllerDelegate: class {
+    func didEndGame (withResult result: Int)
+}
+
 class QuestionViewController: UIViewController {
     
     
@@ -30,17 +34,31 @@ class QuestionViewController: UIViewController {
     private var correctAnswer: Int = -1
     
     private var userAnswer: Int = -1
-    
-    private var allQuestion = BdQuestions.getQuestions()
-    
+
     private var numberQuestion: Int = 1
     
     weak var checkAnswerUserDelegate: CheckAnswerDelegate?
+    
+    weak var delegate: QuestionViewControllerDelegate?
+    
+    var difficulty: DifficultyGame = .easy
+ 
+    private var allQuestion = [Question]()
+    private var bdAllQuestions = BdQuestions.getQuestions()
     
     private let answerColor: UIColor = UIColor(red: 155, green: 204, blue: 221, alpha: 0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        switch difficulty {
+        case .easy:
+            allQuestion = GetQuestionEasy.getQuestions(allQuestions: bdAllQuestions)
+        case .hard:
+            allQuestion = GetQuestionHard.getQuestions(allQuestions: bdAllQuestions)
+//        default:
+//              allQuestion = GetQuestionEasy.getQuestions(allQuestions: bdAllQuestions)
+        }
         
         configureQuestion(question: allQuestion[numberQuestion-1], numberQuestion: numberQuestion)
         
@@ -115,6 +133,7 @@ class QuestionViewController: UIViewController {
                 let message = "Вы ответили на \(numberQuestion)  из \(allQuestion.count) вопросов."
                 saveResult(userResult: numberQuestion)
                 showGameOver (message:  message)
+                delegate?.didEndGame(withResult: numberQuestion)
             }
             else {
                 nextQuestion()
@@ -127,6 +146,7 @@ class QuestionViewController: UIViewController {
             saveResult(userResult: numberQuestion-1)
             let message = "Вы ответили на \(numberQuestion-1)  из \(allQuestion.count) вопросов."
             showGameOver (message:  message)
+             delegate?.didEndGame(withResult: numberQuestion-1)
         }
         
     }
@@ -186,4 +206,12 @@ extension QuestionViewController: CheckAnswerDelegate {
         }
     }
     
+}
+
+extension QuestionViewController: QuestionViewControllerDelegate {
+    
+    func didEndGame(withResult result: Int) {
+        self.delegate?.didEndGame(withResult: result)
+        self.dismiss(animated: true, completion: nil)
+    }
 }

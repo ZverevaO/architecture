@@ -20,6 +20,10 @@
 		D71AAF1A24D56D2500BBE8B0 /* Care.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71AAF1924D56D2500BBE8B0 /* Care.swift */; };
 		D71AAF1D24D582CE00BBE8B0 /* RecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71AAF1C24D582CE00BBE8B0 /* RecordTableViewCell.swift */; };
 		D71AAF1F24D5836300BBE8B0 /* RecordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71AAF1E24D5836300BBE8B0 /* RecordTableViewController.swift */; };
+		D75E8F4124D91486005F81F2 /* DifficultyGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75E8F4024D91486005F81F2 /* DifficultyGame.swift */; };
+		D75E8F4424D917AE005F81F2 /* GetQuestionsStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75E8F4324D917AE005F81F2 /* GetQuestionsStrategy.swift */; };
+		D75E8F4624D9184A005F81F2 /* GetQuestionEasy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75E8F4524D9184A005F81F2 /* GetQuestionEasy.swift */; };
+		D75E8F4824D91A54005F81F2 /* GetQuestionHard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75E8F4724D91A54005F81F2 /* GetQuestionHard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		D71AAF1924D56D2500BBE8B0 /* Care.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Care.swift; sourceTree = "<group>"; };
 		D71AAF1C24D582CE00BBE8B0 /* RecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTableViewCell.swift; sourceTree = "<group>"; };
 		D71AAF1E24D5836300BBE8B0 /* RecordTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTableViewController.swift; sourceTree = "<group>"; };
+		D75E8F4024D91486005F81F2 /* DifficultyGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyGame.swift; sourceTree = "<group>"; };
+		D75E8F4324D917AE005F81F2 /* GetQuestionsStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetQuestionsStrategy.swift; sourceTree = "<group>"; };
+		D75E8F4524D9184A005F81F2 /* GetQuestionEasy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetQuestionEasy.swift; sourceTree = "<group>"; };
+		D75E8F4724D91A54005F81F2 /* GetQuestionHard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetQuestionHard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,9 +94,11 @@
 		D71AAF0B24D527CA00BBE8B0 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				D75E8F4224D91743005F81F2 /* strategy */,
 				D71AAF0C24D527F400BBE8B0 /* questions */,
 				D71AAF1724D56CF900BBE8B0 /* Record.swift */,
 				D71AAF1924D56D2500BBE8B0 /* Care.swift */,
+				D75E8F4024D91486005F81F2 /* DifficultyGame.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -118,6 +128,16 @@
 				D71AAF1C24D582CE00BBE8B0 /* RecordTableViewCell.swift */,
 			);
 			path = cell;
+			sourceTree = "<group>";
+		};
+		D75E8F4224D91743005F81F2 /* strategy */ = {
+			isa = PBXGroup;
+			children = (
+				D75E8F4324D917AE005F81F2 /* GetQuestionsStrategy.swift */,
+				D75E8F4524D9184A005F81F2 /* GetQuestionEasy.swift */,
+				D75E8F4724D91A54005F81F2 /* GetQuestionHard.swift */,
+			);
+			path = strategy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,14 +211,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D75E8F4624D9184A005F81F2 /* GetQuestionEasy.swift in Sources */,
 				D71AAF1A24D56D2500BBE8B0 /* Care.swift in Sources */,
 				D71AAF1024D52CD300BBE8B0 /* BdQuestions.swift in Sources */,
+				D75E8F4124D91486005F81F2 /* DifficultyGame.swift in Sources */,
 				D71AAF1D24D582CE00BBE8B0 /* RecordTableViewCell.swift in Sources */,
 				D71AAF1424D544C700BBE8B0 /* QuestionViewController.swift in Sources */,
 				D71AAF1F24D5836300BBE8B0 /* RecordTableViewController.swift in Sources */,
 				D71AAF0E24D5281500BBE8B0 /* Question.swift in Sources */,
+				D75E8F4424D917AE005F81F2 /* GetQuestionsStrategy.swift in Sources */,
 				D71AAF1624D551FB00BBE8B0 /* MainViewController.swift in Sources */,
 				D71AAF1824D56CF900BBE8B0 /* Record.swift in Sources */,
+				D75E8F4824D91A54005F81F2 /* GetQuestionHard.swift in Sources */,
 				D71AAEF824D5278F00BBE8B0 /* AppDelegate.swift in Sources */,
 				D71AAEFA24D5278F00BBE8B0 /* SceneDelegate.swift in Sources */,
 			);
